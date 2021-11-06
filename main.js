@@ -64,7 +64,7 @@ function socialTemplate(item) {
  */
 function categoryTemplate(item) {
   return `<li class="nav-item active">
-            <a class="nav-link" href={item.href}>${item.name}</a>
+            <a class="nav-link" href=${item.href}>${item.name}</a>
           </li>`
 }
 

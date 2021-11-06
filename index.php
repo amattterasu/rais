@@ -24,24 +24,25 @@
   $data = $db->fetchAllProducts();
 ?>
 
-<div class="container">
-  <header class="header">
-    <div class="bg-light mb-3 shadow-sm p-2">
-      <div class="col-4 logo">
-        <a class="navbar-brand" href="http://7371-rev.isib.tusur.ru">
-          <img src="assets/img/logo.svg" alt="logo">
-          <h5 class="d-inline-block mx-3">
-            Гордость льва
-            <span class="d-block text-muted">Сеть №2 в России</span>
-          </h5>
-        </a>
+<div class="wrapper">
+  <main class="container main">
+    <header class="header">
+      <div class="bg-light mb-3 shadow-sm p-2">
+        <div class="col-4 logo">
+          <a class="navbar-brand" href="http://7371-rev.isib.tusur.ru">
+            <img src="assets/img/logo.svg" alt="logo">
+            <h5 class="d-inline-block mx-3">
+              Гордость льва
+              <span class="d-block text-muted">Сеть №2 в России</span>
+            </h5>
+          </a>
+        </div>
       </div>
-    </div>
-    <nav class="navbar navbar-expand bg-light sticky-top p-2 mb-3 text-center">
-      <ul id="categories-out" class="navbar-nav"></ul>
-    </nav>
-  </header>
-  <main class="main">
+      <nav class="navbar navbar-expand bg-light sticky-top p-2 mb-3 text-center justify-content-between">
+        <ul id="categories-out" class="navbar-nav"></ul>
+        <button type="button" class="btn btn-primary align-self-end">Корзина</button>
+      </nav>
+    </header>
     <div class="row row-cols-1 row-cols-2 row-cols-md-4 row-cols-xl-5 g-4">
       <?php foreach ($data as $key => $value) { ?>
         <div class="col">
@@ -52,13 +53,16 @@
             <div class="card-body">
               <h5 class="card-title"><?php echo $value['name']; ?></h5>
               <small class="card-text text-secondary"><?php echo $value['description']; ?></small>
-
             </div>
             <div class="card-footer">
               <p class="card-text"><small class="text-muted">
                   <?php echo $value['weight'] . ' грамм' ?></small></p>
-              <p class="card-text">от
-                <?php echo $value['price'] ?>₽</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <p class="card-text m-0">от
+                  <?php echo $value['price'] ?>₽
+                </p>
+                <button class="btn btn-danger">I/D</button>
+              </div>
             </div>
           </div>
         </div>
