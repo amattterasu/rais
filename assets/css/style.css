@@ -1,0 +1,116 @@
+:root {
+  --dodo-orange: rgb(255, 105, 0);
+  --footer-top: rgb(24, 24, 24);
+  --footer-bottom: rgba(0, 0, 0, 0.2);
+  --border-radius: 0.25rem;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: var(--dodo-orange) !important;
+}
+
+.container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+.nav-link {
+  color: #000;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.logo h5 {
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.text-muted {
+  font-size: 0.5em;
+  font-weight: 400;
+  line-height: 1.667;
+  text-transform: none;
+}
+
+.header {
+  display: contents;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.bg-footer-top {
+  background-color: var(--footer-top);
+}
+
+.bg-footer-bottom {
+  background-color: var(--footer-bottom);
+}
+
+#scrollup {
+  display: none;
+  position: fixed;
+  color: #fff;
+  background-color: var(--dodo-orange);
+  right: 20px;
+  bottom: 20px;
+  padding: 5px 15px;
+  font-size: 1.3em;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  text-align: center;
+}
+
+#scrollup:hover {
+  background-color: #000;
+}
+
+.card {
+  cursor: pointer;
+  border: none;
+  box-shadow: black;
+}
+
+.card-footer {
+  background-color: unset;
+}
+
+.card {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  /*box-shadow: 0 0 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.card-img-top {
+    transition: 0.5s;
+    display: block;
+}
+
+.card-img-top:hover {
+  transform: scale(1.1);
+}
