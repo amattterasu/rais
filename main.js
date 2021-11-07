@@ -3,7 +3,22 @@
  */
 $(() => {
   init();
+  setTimeout(showPage, 400);
 })
+
+
+function showPage() {
+  $("#loader").fadeOut();
+  $("#container-data").fadeIn()
+}
+
+function redirect() {
+  const credential = false;
+
+  if (!credential) {
+    window.location.replace("/login.php");
+  }
+}
 
 /**
  * Инициализация

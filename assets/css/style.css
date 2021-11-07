@@ -16,6 +16,10 @@ a {
   color: inherit;
 }
 
+#container-data {
+  display: none;
+}
+
 a:hover {
   color: var(--dodo-orange) !important;
 }
@@ -48,10 +52,6 @@ a:hover {
   font-weight: 400;
   line-height: 1.667;
   text-transform: none;
-}
-
-.header {
-  display: contents;
 }
 
 .navbar-brand {
@@ -131,3 +131,30 @@ a:hover {
   box-shadow: none;
 }
 
+.animate-bottom {
+  position: relative;
+  animation-name: animateBottom;
+  animation-duration: 1s;
+}
+
+@-webkit-keyframes animateBottom {
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes animateBottom {
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}

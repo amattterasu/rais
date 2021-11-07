@@ -14,16 +14,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"/>
-  <link rel="stylesheet" href="assets/css/loader.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<?php
-  require_once 'database/db_connection.php';
-  $db = new Database();
-  $db->connect($GLOBALS['sql_dsn'], $GLOBALS['sql_login'], $GLOBALS['sql_password'], $GLOBALS['sql_charset']);
-  $products = $db->fetchAllProducts(true);
-?>
 <div class="wrapper">
   <header class="header container">
     <div class="bg-light mb-3 shadow-sm p-2">
@@ -39,42 +32,7 @@
     </div>
   </header>
   <main class="container main">
-    <nav class="navbar navbar-expand bg-light sticky-top p-2 mb-3 text-center justify-content-between">
-      <ul id="categories-out" class="navbar-nav"></ul>
-      <button type="button" class="btn btn-primary align-self-end">Корзина</button>
-    </nav>
-    <div c id="container-data">
-      <div class="animate-bottom">
-        <h1>Рекомендуем!</h1>
-        <div class="row row-cols-1 row-cols-2 row-cols-md-4 row-cols-xl-5 g-4">
-          <?php foreach ($products as $key => $value) { ?>
-            <div class="col">
-              <div class="card h-100">
-                <!--                src="data:image/jpg;charset=utf8;base64,-->
-                <?php //echo base64_encode($value['image']); ?><!--"-->
-                <img class="card-img-top"
-                     src="assets/img/logo.svg"
-                     alt="Image"/>
-                <div class="card-body">
-                  <h5 class="card-title"><?php echo $value['name']; ?></h5>
-                  <small class="card-text text-secondary"><?php echo $value['description']; ?></small>
-                </div>
-                <div class="card-footer">
-                  <p class="card-text"><small class="text-muted">
-                      <?php echo $value['weight'] . ' грамм' ?></small></p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <p class="card-text m-0">от
-                      <?php echo $value['price'] ?>₽
-                    </p>
-                    <button class="btn btn-danger">I/D</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <?php } ?>
-        </div>
-      </div>
-    </div>
+    login here
   </main>
   <footer class="footer text-center text-white mt-3 bg-footer-top">
     <div class="container p-4 pb-0">
@@ -87,15 +45,6 @@
   </footer>
 </div>
 
-<div id="loader" class="lds-ripple">
-  <div></div>
-  <div></div>
-</div>
-
-<div id="scrollup">
-  <i class="fa fa-chevron-up"></i>
-</div>
-
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
         crossorigin="anonymous">
@@ -105,6 +54,6 @@
         crossorigin="anonymous">
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="main.js"></script>
+<script src=main.js>
 </body>
 </html>
