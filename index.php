@@ -66,7 +66,6 @@
               </div>
             </div>
           <?php } ?>
-
         </div>
       </div>
     </div>
@@ -74,14 +73,9 @@
   <?php include("app/components/footer.php") ?>
 </div>
 
-<div id="loader" class="lds-ripple">
-  <div></div>
-  <div></div>
-</div>
+<?php include("app/components/loader.php") ?>
 
-<div id="scrollup">
-  <i class="fa fa-chevron-up"></i>
-</div>
+<?php include("app/components/scrollup.php") ?>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"

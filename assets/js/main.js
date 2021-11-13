@@ -13,6 +13,7 @@ $(() => {
 })
 
 function showPage() {
+  initScrollUpListeners.call(this);
   $("#loader").fadeOut();
   $("#container-data").fadeIn()
 }
@@ -32,7 +33,6 @@ function init() {
   initQuantity();
   renderSocialMedia();
   renderCategories();
-  initScrollUpListeners();
 }
 
 /**

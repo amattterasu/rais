@@ -34,7 +34,6 @@
         <div id="formFooter">
           <a class="underlineHover text-secondary" href="/index.php">Зарегистрироваться</a>
         </div>
-
       </div>
     </div>
   </main>
