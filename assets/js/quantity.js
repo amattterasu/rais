@@ -1,3 +1,5 @@
+import {addToCart} from "./cart.js";
+
 /**
  * Инициализация элемента отображения количества
  */
@@ -13,26 +15,31 @@ export function initQuantity() {
  * @param event Событие клика по счетчику
  */
 function changeQuantity(event) {
-  const parentNode = $(`.quantity[data-id=${event.target.dataset.id}]`);
-  let input = $(`input[data-id=${event.target.dataset.id}]`);
+  const id = event.target.dataset.id;
+  const parentNode = $(`.quantity[data-id=${id}]`);
+  let input = $(`input[data-id=${id}]`);
   const classList = event.target.classList;
-
   let value = input.val();
+  console.log(value)
   if (classList.contains('quantity__minus')) {
     value = --value;
     if (value === 0) {
       toggle(parentNode)
     }
-    console.log('quantity__minus', event.target.dataset.id);
+    console.log('quantity__minus', id);
   } else if (classList.contains('quantity__plus')) {
     value++;
-    console.log('quantity__plus', event.target.dataset.id);
+    console.log('quantity__plus', id);
   }
   else if (classList.contains('quantity__order')) {
     toggle(parentNode)
-    value++;
+    value = 1;
   }
-  input.val(value);
+
+  if (value || value === 0) {
+    addToCart(id, value);
+    input.val(value);
+  }
 }
 
 function toggle(parentNode) {

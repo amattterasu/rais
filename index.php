@@ -19,18 +19,12 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<?php
-  require_once 'app/database/db_connection.php';
-  $db = new Database();
-  $db->connect($GLOBALS['sql_dsn'], $GLOBALS['sql_login'], $GLOBALS['sql_password'], $GLOBALS['sql_charset']);
-  $products = $db->fetchAllProducts(true);
-?>
 <div class="wrapper">
   <?php include("app/components/header.php") ?>
   <main class="container main">
     <nav class="navbar navbar-expand bg-light sticky-top p-2 mb-3 text-center justify-content-between">
       <ul id="categories-out" class="navbar-nav"></ul>
-      <button type="button" class="btn btn-primary align-self-end">Корзина</button>
+      <button id="cart" type="button" class="btn btn-primary align-self-end">Корзина</button>
     </nav>
     <div  id="container-data">
       <div class="animate-bottom">

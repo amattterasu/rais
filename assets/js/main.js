@@ -9,15 +9,18 @@ import {BASE_URL} from "./const.js";
  * Triggered when the application is ready
  */
 $(() => {
+  // redirect();
   init();
   getAllData();
 })
 
+// todo выпилить?
 let allProducts = [];
 
 function getAllData() {
   $.getJSON(`${BASE_URL}/test.php`,  (products) => {
     renderCards(products);
+    // todo выпилить?
     allProducts = [...products]
     setTimeout(showPage, 400);
   });
