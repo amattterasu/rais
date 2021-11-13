@@ -33,23 +33,25 @@ export function cardTemplate(card) {
         />
         <div class="card-body">
           <h5 class="card-title">${card.name}</h5>
-          <small class="card-text text-secondary">
+          <span class="card-text ">
             ${card.description}
-          </small>
+          </span>
         </div>
         <div class="card-footer">
-        <p class="card-text">
-          <small class="text-muted">
+        <p class="card-text text-muted">
             ${card.weight} грамм
-          </small></p>
-        <div class="d-flex justify-content-between align-items-center">
-          <p class="card-text m-0">от
-            ${card.price}₽
-          </p>
+        </p>
+        <div class="d-flex justify-content-between align-items-center flex-wrap">
+          <div class="card-text">
+            <h6 class="mb-0">от ${card.price}₽</h6>
+          </div>
            <div class="quantity btn-default">
-            <button class="btn btn-danger btn-default quantity__minus" data-id="${card.id}">-</button>
-            <input name="quantity" type="text" class="quantity__input" value="1">
-            <button class="btn btn-danger btn-default quantity__plus" data-id="${card.id}">+</button>
+            <button class="btn btn-danger btn-default w-100 order" data-id="${card.id}">Заказать</button>
+            <div class="hidden">
+              <button class="btn btn-danger btn-default quantity__minus" data-id="${card.id}">-</button>
+              <input name="quantity" type="text" class="quantity__input" data-id="${card.id}" value="1">
+              <button class="btn btn-danger btn-default quantity__plus" data-id="${card.id}">+</button>
+            </div>
            </div>
         </div>
       </div>
@@ -57,5 +59,7 @@ export function cardTemplate(card) {
     </div>
   `
 }
+
+
 
 

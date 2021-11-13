@@ -14,7 +14,7 @@ export function initQuantity() {
  */
 function changeQuantity(event) {
   const classList = event.target.classList;
-  let input = $(this).children('input');
+  let input = $(`input[data-id=${event.target.dataset.id}]`);
   let value = input.val();
   if (classList.contains('quantity__minus')) {
     value = value > 1 ? --value : value
