@@ -4,6 +4,7 @@
   justify-content: center;
   flex: 0 0 auto;
   padding: 0;
+  font-size: 1.5em;
 }
 
 .quantity__minus,
@@ -11,17 +12,15 @@
   color: #fff;
   border: 0;
   width: 40px;
-  height: 100%;
-  font-size: 1.5em;
   box-shadow: none;
   float: left;
   text-align: center;
+  font-weight: 600;
 }
 
 .quantity__input {
   width: 40px;
-  height: 30px;
-  margin: 2px 0;
+
   border: 0;
   border-radius: 8px;
   color: #000;
@@ -29,6 +28,7 @@
   box-shadow: none;
   outline: 0;
   float: left;
+  margin-top: 3%;
 }
 
 .quantity__minus:link,
@@ -48,22 +48,7 @@
   letter-spacing: .8px;
   text-transform: uppercase;
   border: 0;
-  line-height: .9em;
   outline: 0;
-}
-
-@media (max-width: 1000px) {
-  .quantity {
-    flex-direction: column;
-    width: 40px;
-  }
-}
-
-@media (max-width: 768px) {
-  .quantity {
-    flex-direction: row;
-    width: unset;
-  }
 }
 
 .hidden {

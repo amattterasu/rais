@@ -23,6 +23,11 @@ export function categoryTemplate(item) {
           </li>`
 }
 
+/**
+ * Шаблон карточки товара
+ * @param card Данные карточки
+ * @returns {string} Шаблон
+ */
 export function cardTemplate(card) {
   return `
     <div card-id="${card.id}" class="col">
@@ -45,11 +50,11 @@ export function cardTemplate(card) {
           <div class="card-text">
             <h6 class="mb-0">от ${card.price}₽</h6>
           </div>
-           <div class="quantity btn-default">
-            <button class="btn btn-danger btn-default w-100 order" data-id="${card.id}">Заказать</button>
-            <div class="hidden">
+           <div class="quantity btn-default" data-id="${card.id}">
+            <button class="btn btn-danger btn-default w-100 quantity__order" data-id="${card.id}">Заказать</button>
+            <div class="quantity__counter hidden" >
               <button class="btn btn-danger btn-default quantity__minus" data-id="${card.id}">-</button>
-              <input name="quantity" type="text" class="quantity__input" data-id="${card.id}" value="1">
+              <input name="quantity" type="text" class="quantity__input" data-id="${card.id}" value="0">
               <button class="btn btn-danger btn-default quantity__plus" data-id="${card.id}">+</button>
             </div>
            </div>
@@ -59,7 +64,5 @@ export function cardTemplate(card) {
     </div>
   `
 }
-
-
 
 

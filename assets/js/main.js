@@ -59,6 +59,11 @@ function renderSocialMedia() {
 function renderCategories() {
   render(categories, categoryTemplate, '#categories-out');
 }
+
+/**
+ * Функция отрисовки карточек товара
+ * @param data Данные из /test.php
+ */
 function renderCards(data) {
   render(data, cardTemplate, '#cards-container');
 }
