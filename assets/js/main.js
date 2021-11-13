@@ -1,21 +1,33 @@
-import { socialMedia, categories } from "./data.js";
-import { render } from  "./utils.js";
-import  { initScrollUpListeners } from "./scrollup.js";
-import  { socialTemplate, categoryTemplate } from "./template.js";
-import  { initQuantity } from "./quantity.js";
+import {socialMedia, categories} from "./data.js";
+import {render} from "./utils.js";
+import {initScrollUpListeners} from "./scrollup.js";
+import {socialTemplate, categoryTemplate, cardTemplate} from "./template.js";
+import {initQuantity} from "./quantity.js";
+import {BASE_URL} from "./const.js";
 
 /**
  * Triggered when the application is ready
  */
 $(() => {
   init();
-  setTimeout(showPage, 400);
+  getAllData();
 })
+
+let allProducts = [];
+
+function getAllData() {
+  $.getJSON(`${BASE_URL}/test.php`,  (products) => {
+    renderCards(products);
+    allProducts = [...products]
+    setTimeout(showPage, 400);
+  });
+}
 
 function showPage() {
   initScrollUpListeners.call(this);
   $("#loader").fadeOut();
   $("#container-data").fadeIn()
+  initQuantity.call(this);
 }
 
 function redirect() {
@@ -30,7 +42,6 @@ function redirect() {
  * Инициализация
  */
 function init() {
-  initQuantity();
   renderSocialMedia();
   renderCategories();
 }
@@ -48,4 +59,6 @@ function renderSocialMedia() {
 function renderCategories() {
   render(categories, categoryTemplate, '#categories-out');
 }
-
+function renderCards(data) {
+  render(data, cardTemplate, '#cards-container');
+}

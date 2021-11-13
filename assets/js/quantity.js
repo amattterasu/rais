@@ -1,20 +1,27 @@
-export  function initQuantity() {
-  const minus = $('.quantity__minus');
-  const plus = $('.quantity__plus');
-  const input = $('.quantity__input');
-  minus.on('click', function(e) {
-    e.preventDefault();
-    let value = input.val();
-    if (value > 1) {
-      value--;
-    }
-    input.val(value);
-  });
-
-  plus.on('click',function(e) {
-    e.preventDefault();
-    let value = input.val();
-    value++;
-    input.val(value);
+/**
+ * Инициализация элемента отображения количества
+ */
+export function initQuantity() {
+  const quantity = $('.quantity');
+  quantity.on('click', function (event) {
+    changeQuantity.call(this, event);
   })
+}
+
+/**
+ * Логика изменения счетчика
+ * @param event Событие клика по счетчику
+ */
+function changeQuantity(event) {
+  const classList = event.target.classList;
+  let input = $(this).children('input');
+  let value = input.val();
+  if (classList.contains('quantity__minus')) {
+    value = value > 1 ? --value : value
+    console.log('quantity__minus', event.target.dataset.id);
+  } else  if (classList.contains('quantity__plus')) {
+    value++;
+    console.log('quantity__plus', event.target.dataset.id);
+  }
+  input.val(value);
 }

@@ -35,37 +35,7 @@
     <div  id="container-data">
       <div class="animate-bottom">
         <h1>Рекомендуем!</h1>
-        <div class="row row-cols-1 row-cols-2 row-cols-md-4 row-cols-xl-5 g-4">
-
-          <?php foreach ($products as $key => $value) { ?>
-            <div class="col">
-              <div class="card h-100">
-                <!--                src="data:image/jpg;charset=utf8;base64,-->
-                <?php //echo base64_encode($value['image']); ?><!--"-->
-                <img class="card-img-top"
-                     src="assets/img/logo.svg"
-                     alt="Image"/>
-                <div class="card-body">
-                  <h5 class="card-title"><?php echo $value['name']; ?></h5>
-                  <small class="card-text text-secondary"><?php echo $value['description']; ?></small>
-                </div>
-                <div class="card-footer">
-                  <p class="card-text"><small class="text-muted">
-                      <?php echo $value['weight'] . ' грамм' ?></small></p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <p class="card-text m-0">от
-                      <?php echo $value['price'] ?>₽
-                    </p>
-                    <div class="quantity btn-default">
-                      <button class="btn btn-danger btn-default quantity__minus" data-id="<?php echo $value['id']; ?>">-</button>
-                      <input name="quantity" type="text" class="quantity__input" value="1">
-                      <button class="btn btn-danger btn-default quantity__plus" data-id="<?php echo $value['id']; ?>">+</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <?php } ?>
+        <div id="cards-container" class="row row-cols-1 row-cols-2 row-cols-md-4 row-cols-xl-5 g-4">
         </div>
       </div>
     </div>

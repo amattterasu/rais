@@ -9,5 +9,5 @@ export function render(data, renderTemplate, target) {
   data.forEach((item) => {
     out.push(renderTemplate(item));
   })
-  $(`${target}`).html(out);
+  $(`${target}`).append(out);
 }
