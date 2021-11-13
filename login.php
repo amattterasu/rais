@@ -14,35 +14,31 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="assets/css/login.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 <div class="wrapper">
-  <header class="header container">
-    <div class="bg-light mb-3 shadow-sm p-2">
-      <div class="col-4 logo">
-        <a class="navbar-brand" href="http://7371-rev.isib.tusur.ru">
-          <img src="assets/img/logo.svg" alt="logo">
-          <h5 class="d-inline-block mx-3">
-            Гордость льва
-            <span class="d-block text-muted">Сеть №2 в России</span>
-          </h5>
-        </a>
+  <?php include("app/components/header.php") ?>
+  <main class="container main">
+    <div class="form-wrapper fadeInDown">
+      <div id="formContent">
+        <div class="fadeIn first">
+          <h1>Вход на сайт</h1>
+        </div>
+        <form>
+          <input type="text" id="login" class="fadeIn second" name="login" placeholder="Логин">
+          <input type="password" id="password" class="fadeIn third" name="login" placeholder="Пароль">
+          <button type="submit" class="fadeIn fourth"> Войти</button>
+        </form>
+        <div id="formFooter">
+          <a class="underlineHover text-secondary" href="/index.php">Зарегистрироваться</a>
+        </div>
+
       </div>
     </div>
-  </header>
-  <main class="container main">
-    login here
   </main>
-  <footer class="footer text-center text-white mt-3 bg-footer-top">
-    <div class="container p-4 pb-0">
-      <section id="media-out" class="mb-4 text-center"></section>
-    </div>
-    <div class="text-center p-3 bg-footer-bottom">
-      <span class="text-uppercase">Гордость льва</span>
-      <span>© 2021 Copyright</span>
-    </div>
-  </footer>
+  <?php include("app/components/footer.php") ?>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
@@ -54,6 +50,6 @@
         crossorigin="anonymous">
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src=main.js>
-</body>
-</html>
+<script src=assets/js/main.js>
+  </body>
+  </html>

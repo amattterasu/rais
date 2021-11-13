@@ -15,38 +15,28 @@
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"/>
   <link rel="stylesheet" href="assets/css/loader.css">
+  <link rel="stylesheet" href="assets/css/quantity.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 <?php
-  require_once 'database/db_connection.php';
+  require_once 'app/database/db_connection.php';
   $db = new Database();
   $db->connect($GLOBALS['sql_dsn'], $GLOBALS['sql_login'], $GLOBALS['sql_password'], $GLOBALS['sql_charset']);
   $products = $db->fetchAllProducts(true);
 ?>
 <div class="wrapper">
-  <header class="header container">
-    <div class="bg-light mb-3 shadow-sm p-2">
-      <div class="col-4 logo">
-        <a class="navbar-brand" href="http://7371-rev.isib.tusur.ru">
-          <img src="assets/img/logo.svg" alt="logo">
-          <h5 class="d-inline-block mx-3">
-            Гордость льва
-            <span class="d-block text-muted">Сеть №2 в России</span>
-          </h5>
-        </a>
-      </div>
-    </div>
-  </header>
+  <?php include("app/components/header.php") ?>
   <main class="container main">
     <nav class="navbar navbar-expand bg-light sticky-top p-2 mb-3 text-center justify-content-between">
       <ul id="categories-out" class="navbar-nav"></ul>
       <button type="button" class="btn btn-primary align-self-end">Корзина</button>
     </nav>
-    <div c id="container-data">
+    <div  id="container-data">
       <div class="animate-bottom">
         <h1>Рекомендуем!</h1>
         <div class="row row-cols-1 row-cols-2 row-cols-md-4 row-cols-xl-5 g-4">
+
           <?php foreach ($products as $key => $value) { ?>
             <div class="col">
               <div class="card h-100">
@@ -66,25 +56,22 @@
                     <p class="card-text m-0">от
                       <?php echo $value['price'] ?>₽
                     </p>
-                    <button class="btn btn-danger">I/D</button>
+                    <div class="quantity btn-default">
+                      <button class="btn btn-danger btn-default quantity__minus" data-id="<?php echo $value['id']; ?>">-</button>
+                      <input name="quantity" type="text" class="quantity__input" value="1">
+                      <button class="btn btn-danger btn-default quantity__plus" data-id="<?php echo $value['id']; ?>">+</button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           <?php } ?>
+
         </div>
       </div>
     </div>
   </main>
-  <footer class="footer text-center text-white mt-3 bg-footer-top">
-    <div class="container p-4 pb-0">
-      <section id="media-out" class="mb-4 text-center"></section>
-    </div>
-    <div class="text-center p-3 bg-footer-bottom">
-      <span class="text-uppercase">Гордость льва</span>
-      <span>© 2021 Copyright</span>
-    </div>
-  </footer>
+  <?php include("app/components/footer.php") ?>
 </div>
 
 <div id="loader" class="lds-ripple">
@@ -105,6 +92,6 @@
         crossorigin="anonymous">
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="main.js"></script>
+<script type="module" src="assets/js/main.js"></script>
 </body>
 </html>
